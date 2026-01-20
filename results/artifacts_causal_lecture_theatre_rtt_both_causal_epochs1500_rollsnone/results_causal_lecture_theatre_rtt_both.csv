@@ -1,0 +1,2 @@
+env,feature_mode,model_type,rf_rmse,N_AP,grid_m,T_used,feat_dim,causal
+lecture_theatre,rtt,both,0.36677196621894836,5,0.6,60,5,True

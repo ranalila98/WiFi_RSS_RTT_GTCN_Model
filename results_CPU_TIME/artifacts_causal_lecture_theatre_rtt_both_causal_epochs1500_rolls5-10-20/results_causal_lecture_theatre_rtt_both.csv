@@ -1,0 +1,2 @@
+env,feature_mode,model_type,rf_rmse,N_AP,grid_m,T_used,feat_dim,causal,cpu_ms_per_seq,cpu_ms_per_scan,params,macs,flops
+lecture_theatre,rtt,both,0.44851577281951904,5,0.6,60,20,True,1.3399834744632244,0.022333057907720406,90910,8930340.0,17860680.0

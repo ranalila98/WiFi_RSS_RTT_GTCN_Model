@@ -1,0 +1,2 @@
+env,feature_mode,model_type,rf_rmse,N_AP,grid_m,T_used,feat_dim,causal
+office,rss,both,1.3712537288665771,5,0.6,60,5,True

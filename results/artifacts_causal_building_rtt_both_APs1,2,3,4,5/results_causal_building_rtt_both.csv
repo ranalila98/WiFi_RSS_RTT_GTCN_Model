@@ -1,0 +1,2 @@
+env,feature_mode,model_type,rf_rmse,N_AP,grid_m,T_used,feat_dim,causal
+building,rtt,both,2.3926661014556885,5,0.6,120,20,True

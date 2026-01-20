@@ -1,0 +1,13 @@
+env,model_type,feature_mode,rf_rmse,epochs,roll_windows
+building,both,both,0.6602432727813721,1500,"[5, 10, 20]"
+building,gcn,both,0.877214789390564,1500,"[5, 10, 20]"
+building,tcn,rtt,0.7568302154541016,1500,"[5, 10, 20]"
+corridor,both,both,0.5286687612533569,1500,"[5, 10, 20]"
+corridor,gcn,rtt,0.5856200456619263,1500,"[5, 10, 20]"
+corridor,tcn,rtt,0.7728923559188843,1500,"[5, 10, 20]"
+lecture_theatre,both,rtt,0.44851577281951904,1500,"[5, 10, 20]"
+lecture_theatre,gcn,rtt,0.42624208331108093,1500,"[5, 10, 20]"
+lecture_theatre,tcn,rtt,0.4095424711704254,1500,"[5, 10, 20]"
+office,both,both,0.5598061084747314,1500,"[5, 10, 20]"
+office,gcn,rtt,0.6219141483306885,1500,"[5, 10, 20]"
+office,tcn,rtt,0.703865110874176,1500,"[5, 10, 20]"

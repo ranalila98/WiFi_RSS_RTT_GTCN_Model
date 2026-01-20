@@ -1,0 +1,5 @@
+env,feature_mode,model_type,rf_rmse,N_AP,grid_m,T_used,feat_dim,causal,num_aps
+office,both,both,0.9433174729347229,2,0.6,60,38,True,2
+office,both,both,0.8289794921875,3,0.6,60,38,True,3
+office,both,both,0.6874738335609436,4,0.6,60,38,True,4
+office,both,both,0.5598061084747314,5,0.6,60,38,True,5

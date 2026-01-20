@@ -1,0 +1,2 @@
+env,feature_mode,model_type,rf_rmse,N_AP,grid_m,T_used,feat_dim,causal
+corridor,rtt,tcn,0.7947998046875,4,0.6,60,5,True

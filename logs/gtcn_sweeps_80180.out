@@ -1,0 +1,913 @@
+[INFO] Host      : g-04-01
+[INFO] SLURM JOB : 80180
+[INFO] GPU       : MIG-332bdf05-d4de-5e51-87da-13e92745bbb9
+Thu Dec  4 10:32:04 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.163.01             Driver Version: 550.163.01     CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A30                     On  |   00000000:21:00.0 Off |                  Off |
+| N/A   38C    P0             68W /  165W |      51MiB /  24576MiB |     N/A      Default |
+|                                         |                        |              Enabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| MIG devices:                                                                            |
++------------------+----------------------------------+-----------+-----------------------+
+| GPU  GI  CI  MIG |                     Memory-Usage |        Vol|      Shared           |
+|      ID  ID  Dev |                       BAR1-Usage | SM     Unc| CE ENC DEC OFA JPG    |
+|                  |                                  |        ECC|                       |
+|==================+==================================+===========+=======================|
+|  0    3   0   0  |              13MiB /  5952MiB    | 14    N/A |  1   0    1    0    0 |
+|                  |                 0MiB /  8191MiB  |           |                       |
++------------------+----------------------------------+-----------+-----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
++ /work/lxr240011/conda_envs/WiMANS/bin/python -u main_causal_residual_cpu_time.py
+
+========== CAUSAL SWEEP START: causal_epochs1500_rolls5-10-20 ==========
+
+
+================= CAUSAL ENV: corridor =================
+
+=== CAUSAL CORRIDOR | mode=RSS | model=GCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_corridor_rss_gcn_causal_epochs1500_rolls5-10-20 ===
+[corridor] Using T_expected=60 scans/RP
+[corridor] Using AP indices from coords: [2, 3, 4, 5]
+[corridor] Adding rolling stats for mode='rss' with windows=[5, 10, 20]
+
+[ptflops] Input shape (T,N,F): [60, 4, 20]
+[ptflops] Params: 19,221
+[ptflops] MACs  : 3.86M
+[ptflops] FLOPs : 7.72M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_corridor_rss_gcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL corridor | rss | gcn | epoch=0200 | RF-RMSE=3.649 m
+[EVAL] CAUSAL corridor | rss | gcn | epoch=0400 | RF-RMSE=2.363 m
+[EVAL] CAUSAL corridor | rss | gcn | epoch=0600 | RF-RMSE=1.884 m
+[EVAL] CAUSAL corridor | rss | gcn | epoch=0800 | RF-RMSE=1.652 m
+[EVAL] CAUSAL corridor | rss | gcn | epoch=1000 | RF-RMSE=1.812 m
+[EVAL] CAUSAL corridor | rss | gcn | epoch=1200 | RF-RMSE=1.606 m
+[EVAL] CAUSAL corridor | rss | gcn | epoch=1400 | RF-RMSE=1.517 m
+[EVAL] CAUSAL corridor | rss | gcn | epoch=1500 | RF-RMSE=1.643 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 0.5329 ms, per scan = 0.0089 ms (T=60, n_runs=100)
+
+=== CAUSAL CORRIDOR | mode=RTT | model=GCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_corridor_rtt_gcn_causal_epochs1500_rolls5-10-20 ===
+[corridor] Using T_expected=60 scans/RP
+[corridor] Using AP indices from coords: [2, 3, 4, 5]
+[corridor] Adding rolling stats for mode='rtt' with windows=[5, 10, 20]
+
+[ptflops] Input shape (T,N,F): [60, 4, 20]
+[ptflops] Params: 19,221
+[ptflops] MACs  : 3.86M
+[ptflops] FLOPs : 7.72M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_corridor_rtt_gcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL corridor | rtt | gcn | epoch=0200 | RF-RMSE=0.700 m
+[EVAL] CAUSAL corridor | rtt | gcn | epoch=0400 | RF-RMSE=0.663 m
+[EVAL] CAUSAL corridor | rtt | gcn | epoch=0600 | RF-RMSE=0.609 m
+[EVAL] CAUSAL corridor | rtt | gcn | epoch=0800 | RF-RMSE=0.558 m
+[EVAL] CAUSAL corridor | rtt | gcn | epoch=1000 | RF-RMSE=0.600 m
+[EVAL] CAUSAL corridor | rtt | gcn | epoch=1200 | RF-RMSE=0.604 m
+[EVAL] CAUSAL corridor | rtt | gcn | epoch=1400 | RF-RMSE=0.614 m
+[EVAL] CAUSAL corridor | rtt | gcn | epoch=1500 | RF-RMSE=0.586 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 0.5344 ms, per scan = 0.0089 ms (T=60, n_runs=100)
+
+=== CAUSAL CORRIDOR | mode=BOTH | model=GCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_corridor_both_gcn_causal_epochs1500_rolls5-10-20 ===
+[corridor] Using T_expected=60 scans/RP
+[corridor] Using AP indices from coords: [2, 3, 4, 5]
+[corridor] Adding rolling stats for mode='both' with windows=[5, 10, 20]
+
+[ptflops] Input shape (T,N,F): [60, 4, 38]
+[ptflops] Params: 20,949
+[ptflops] MACs  : 4.27M
+[ptflops] FLOPs : 8.55M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_corridor_both_gcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL corridor | both | gcn | epoch=0200 | RF-RMSE=1.631 m
+[EVAL] CAUSAL corridor | both | gcn | epoch=0400 | RF-RMSE=1.081 m
+[EVAL] CAUSAL corridor | both | gcn | epoch=0600 | RF-RMSE=1.241 m
+[EVAL] CAUSAL corridor | both | gcn | epoch=0800 | RF-RMSE=0.986 m
+[EVAL] CAUSAL corridor | both | gcn | epoch=1000 | RF-RMSE=1.246 m
+[EVAL] CAUSAL corridor | both | gcn | epoch=1200 | RF-RMSE=0.871 m
+[EVAL] CAUSAL corridor | both | gcn | epoch=1400 | RF-RMSE=0.676 m
+[EVAL] CAUSAL corridor | both | gcn | epoch=1500 | RF-RMSE=0.720 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 0.5437 ms, per scan = 0.0091 ms (T=60, n_runs=100)
+
+=== CAUSAL CORRIDOR | mode=RSS | model=TCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_corridor_rss_tcn_causal_epochs1500_rolls5-10-20 ===
+[corridor] Using T_expected=60 scans/RP
+[corridor] Using AP indices from coords: [2, 3, 4, 5]
+[corridor] Adding rolling stats for mode='rss' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [60, 4, 20]
+[ptflops] Params: 80,853
+[ptflops] MACs  : 5.79M
+[ptflops] FLOPs : 11.58M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_corridor_rss_tcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL corridor | rss | tcn | epoch=0200 | RF-RMSE=2.429 m
+[EVAL] CAUSAL corridor | rss | tcn | epoch=0400 | RF-RMSE=1.797 m
+[EVAL] CAUSAL corridor | rss | tcn | epoch=0600 | RF-RMSE=1.620 m
+[EVAL] CAUSAL corridor | rss | tcn | epoch=0800 | RF-RMSE=2.055 m
+[EVAL] CAUSAL corridor | rss | tcn | epoch=1000 | RF-RMSE=1.964 m
+[EVAL] CAUSAL corridor | rss | tcn | epoch=1200 | RF-RMSE=1.662 m
+[EVAL] CAUSAL corridor | rss | tcn | epoch=1400 | RF-RMSE=2.038 m
+[EVAL] CAUSAL corridor | rss | tcn | epoch=1500 | RF-RMSE=1.953 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 0.8762 ms, per scan = 0.0146 ms (T=60, n_runs=100)
+
+=== CAUSAL CORRIDOR | mode=RTT | model=TCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_corridor_rtt_tcn_causal_epochs1500_rolls5-10-20 ===
+[corridor] Using T_expected=60 scans/RP
+[corridor] Using AP indices from coords: [2, 3, 4, 5]
+[corridor] Adding rolling stats for mode='rtt' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [60, 4, 20]
+[ptflops] Params: 80,853
+[ptflops] MACs  : 5.79M
+[ptflops] FLOPs : 11.58M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_corridor_rtt_tcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL corridor | rtt | tcn | epoch=0200 | RF-RMSE=1.173 m
+[EVAL] CAUSAL corridor | rtt | tcn | epoch=0400 | RF-RMSE=0.948 m
+[EVAL] CAUSAL corridor | rtt | tcn | epoch=0600 | RF-RMSE=0.927 m
+[EVAL] CAUSAL corridor | rtt | tcn | epoch=0800 | RF-RMSE=0.822 m
+[EVAL] CAUSAL corridor | rtt | tcn | epoch=1000 | RF-RMSE=0.788 m
+[EVAL] CAUSAL corridor | rtt | tcn | epoch=1200 | RF-RMSE=0.770 m
+[EVAL] CAUSAL corridor | rtt | tcn | epoch=1400 | RF-RMSE=0.743 m
+[EVAL] CAUSAL corridor | rtt | tcn | epoch=1500 | RF-RMSE=0.773 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 0.8953 ms, per scan = 0.0149 ms (T=60, n_runs=100)
+
+=== CAUSAL CORRIDOR | mode=BOTH | model=TCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_corridor_both_tcn_causal_epochs1500_rolls5-10-20 ===
+[corridor] Using T_expected=60 scans/RP
+[corridor] Using AP indices from coords: [2, 3, 4, 5]
+[corridor] Adding rolling stats for mode='both' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [60, 4, 38]
+[ptflops] Params: 82,581
+[ptflops] MACs  : 6.20M
+[ptflops] FLOPs : 12.41M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_corridor_both_tcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL corridor | both | tcn | epoch=0200 | RF-RMSE=2.829 m
+[EVAL] CAUSAL corridor | both | tcn | epoch=0400 | RF-RMSE=2.242 m
+[EVAL] CAUSAL corridor | both | tcn | epoch=0600 | RF-RMSE=1.431 m
+[EVAL] CAUSAL corridor | both | tcn | epoch=0800 | RF-RMSE=1.017 m
+[EVAL] CAUSAL corridor | both | tcn | epoch=1000 | RF-RMSE=1.030 m
+[EVAL] CAUSAL corridor | both | tcn | epoch=1200 | RF-RMSE=0.990 m
+[EVAL] CAUSAL corridor | both | tcn | epoch=1400 | RF-RMSE=0.874 m
+[EVAL] CAUSAL corridor | both | tcn | epoch=1500 | RF-RMSE=0.913 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 0.8904 ms, per scan = 0.0148 ms (T=60, n_runs=100)
+
+=== CAUSAL CORRIDOR | mode=RSS | model=BOTH | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_corridor_rss_both_causal_epochs1500_rolls5-10-20 ===
+[corridor] Using T_expected=60 scans/RP
+[corridor] Using AP indices from coords: [2, 3, 4, 5]
+[corridor] Adding rolling stats for mode='rss' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [60, 4, 20]
+[ptflops] Params: 90,901
+[ptflops] MACs  : 8.20M
+[ptflops] FLOPs : 16.40M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_corridor_rss_both_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL corridor | rss | both | epoch=0200 | RF-RMSE=5.272 m
+[EVAL] CAUSAL corridor | rss | both | epoch=0400 | RF-RMSE=3.051 m
+[EVAL] CAUSAL corridor | rss | both | epoch=0600 | RF-RMSE=1.462 m
+[EVAL] CAUSAL corridor | rss | both | epoch=0800 | RF-RMSE=1.803 m
+[EVAL] CAUSAL corridor | rss | both | epoch=1000 | RF-RMSE=1.163 m
+[EVAL] CAUSAL corridor | rss | both | epoch=1200 | RF-RMSE=1.280 m
+[EVAL] CAUSAL corridor | rss | both | epoch=1400 | RF-RMSE=1.311 m
+[EVAL] CAUSAL corridor | rss | both | epoch=1500 | RF-RMSE=1.230 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 1.2932 ms, per scan = 0.0216 ms (T=60, n_runs=100)
+
+=== CAUSAL CORRIDOR | mode=RTT | model=BOTH | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_corridor_rtt_both_causal_epochs1500_rolls5-10-20 ===
+[corridor] Using T_expected=60 scans/RP
+[corridor] Using AP indices from coords: [2, 3, 4, 5]
+[corridor] Adding rolling stats for mode='rtt' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [60, 4, 20]
+[ptflops] Params: 90,901
+[ptflops] MACs  : 8.20M
+[ptflops] FLOPs : 16.40M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_corridor_rtt_both_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL corridor | rtt | both | epoch=0200 | RF-RMSE=0.900 m
+[EVAL] CAUSAL corridor | rtt | both | epoch=0400 | RF-RMSE=0.565 m
+[EVAL] CAUSAL corridor | rtt | both | epoch=0600 | RF-RMSE=0.644 m
+[EVAL] CAUSAL corridor | rtt | both | epoch=0800 | RF-RMSE=0.579 m
+[EVAL] CAUSAL corridor | rtt | both | epoch=1000 | RF-RMSE=0.552 m
+[EVAL] CAUSAL corridor | rtt | both | epoch=1200 | RF-RMSE=0.691 m
+[EVAL] CAUSAL corridor | rtt | both | epoch=1400 | RF-RMSE=0.603 m
+[EVAL] CAUSAL corridor | rtt | both | epoch=1500 | RF-RMSE=0.663 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 1.2965 ms, per scan = 0.0216 ms (T=60, n_runs=100)
+
+=== CAUSAL CORRIDOR | mode=BOTH | model=BOTH | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_corridor_both_both_causal_epochs1500_rolls5-10-20 ===
+[corridor] Using T_expected=60 scans/RP
+[corridor] Using AP indices from coords: [2, 3, 4, 5]
+[corridor] Adding rolling stats for mode='both' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [60, 4, 38]
+[ptflops] Params: 93,781
+[ptflops] MACs  : 8.89M
+[ptflops] FLOPs : 17.78M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_corridor_both_both_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL corridor | both | both | epoch=0200 | RF-RMSE=1.127 m
+[EVAL] CAUSAL corridor | both | both | epoch=0400 | RF-RMSE=0.721 m
+[EVAL] CAUSAL corridor | both | both | epoch=0600 | RF-RMSE=0.637 m
+[EVAL] CAUSAL corridor | both | both | epoch=0800 | RF-RMSE=0.716 m
+[EVAL] CAUSAL corridor | both | both | epoch=1000 | RF-RMSE=0.591 m
+[EVAL] CAUSAL corridor | both | both | epoch=1200 | RF-RMSE=0.543 m
+[EVAL] CAUSAL corridor | both | both | epoch=1400 | RF-RMSE=0.568 m
+[EVAL] CAUSAL corridor | both | both | epoch=1500 | RF-RMSE=0.529 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 1.3134 ms, per scan = 0.0219 ms (T=60, n_runs=100)
+
+================= CAUSAL ENV: office =================
+
+=== CAUSAL OFFICE | mode=RSS | model=GCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_office_rss_gcn_causal_epochs1500_rolls5-10-20 ===
+[office] Using T_expected=60 scans/RP
+[office] Using AP indices from coords: [1, 2, 3, 4, 5]
+[office] Adding rolling stats for mode='rss' with windows=[5, 10, 20]
+
+[ptflops] Input shape (T,N,F): [60, 5, 20]
+[ptflops] Params: 19,230
+[ptflops] MACs  : 4.76M
+[ptflops] FLOPs : 9.52M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_office_rss_gcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL office | rss | gcn | epoch=0200 | RF-RMSE=1.572 m
+[EVAL] CAUSAL office | rss | gcn | epoch=0400 | RF-RMSE=1.478 m
+[EVAL] CAUSAL office | rss | gcn | epoch=0600 | RF-RMSE=1.386 m
+[EVAL] CAUSAL office | rss | gcn | epoch=0800 | RF-RMSE=1.377 m
+[EVAL] CAUSAL office | rss | gcn | epoch=1000 | RF-RMSE=1.324 m
+[EVAL] CAUSAL office | rss | gcn | epoch=1200 | RF-RMSE=1.329 m
+[EVAL] CAUSAL office | rss | gcn | epoch=1400 | RF-RMSE=1.433 m
+[EVAL] CAUSAL office | rss | gcn | epoch=1500 | RF-RMSE=1.241 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 0.5657 ms, per scan = 0.0094 ms (T=60, n_runs=100)
+
+=== CAUSAL OFFICE | mode=RTT | model=GCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_office_rtt_gcn_causal_epochs1500_rolls5-10-20 ===
+[office] Using T_expected=60 scans/RP
+[office] Using AP indices from coords: [1, 2, 3, 4, 5]
+[office] Adding rolling stats for mode='rtt' with windows=[5, 10, 20]
+
+[ptflops] Input shape (T,N,F): [60, 5, 20]
+[ptflops] Params: 19,230
+[ptflops] MACs  : 4.76M
+[ptflops] FLOPs : 9.52M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_office_rtt_gcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL office | rtt | gcn | epoch=0200 | RF-RMSE=0.737 m
+[EVAL] CAUSAL office | rtt | gcn | epoch=0400 | RF-RMSE=0.646 m
+[EVAL] CAUSAL office | rtt | gcn | epoch=0600 | RF-RMSE=0.621 m
+[EVAL] CAUSAL office | rtt | gcn | epoch=0800 | RF-RMSE=0.629 m
+[EVAL] CAUSAL office | rtt | gcn | epoch=1000 | RF-RMSE=0.574 m
+[EVAL] CAUSAL office | rtt | gcn | epoch=1200 | RF-RMSE=0.600 m
+[EVAL] CAUSAL office | rtt | gcn | epoch=1400 | RF-RMSE=0.599 m
+[EVAL] CAUSAL office | rtt | gcn | epoch=1500 | RF-RMSE=0.622 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 0.5658 ms, per scan = 0.0094 ms (T=60, n_runs=100)
+
+=== CAUSAL OFFICE | mode=BOTH | model=GCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_office_both_gcn_causal_epochs1500_rolls5-10-20 ===
+[office] Using T_expected=60 scans/RP
+[office] Using AP indices from coords: [1, 2, 3, 4, 5]
+[office] Adding rolling stats for mode='both' with windows=[5, 10, 20]
+
+[ptflops] Input shape (T,N,F): [60, 5, 38]
+[ptflops] Params: 20,958
+[ptflops] MACs  : 5.28M
+[ptflops] FLOPs : 10.55M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_office_both_gcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL office | both | gcn | epoch=0200 | RF-RMSE=1.085 m
+[EVAL] CAUSAL office | both | gcn | epoch=0400 | RF-RMSE=0.908 m
+[EVAL] CAUSAL office | both | gcn | epoch=0600 | RF-RMSE=0.816 m
+[EVAL] CAUSAL office | both | gcn | epoch=0800 | RF-RMSE=0.853 m
+[EVAL] CAUSAL office | both | gcn | epoch=1000 | RF-RMSE=0.740 m
+[EVAL] CAUSAL office | both | gcn | epoch=1200 | RF-RMSE=0.769 m
+[EVAL] CAUSAL office | both | gcn | epoch=1400 | RF-RMSE=0.757 m
+[EVAL] CAUSAL office | both | gcn | epoch=1500 | RF-RMSE=0.803 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 0.5735 ms, per scan = 0.0096 ms (T=60, n_runs=100)
+
+=== CAUSAL OFFICE | mode=RSS | model=TCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_office_rss_tcn_causal_epochs1500_rolls5-10-20 ===
+[office] Using T_expected=60 scans/RP
+[office] Using AP indices from coords: [1, 2, 3, 4, 5]
+[office] Adding rolling stats for mode='rss' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [60, 5, 20]
+[ptflops] Params: 80,862
+[ptflops] MACs  : 5.92M
+[ptflops] FLOPs : 11.83M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_office_rss_tcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL office | rss | tcn | epoch=0200 | RF-RMSE=1.576 m
+[EVAL] CAUSAL office | rss | tcn | epoch=0400 | RF-RMSE=1.439 m
+[EVAL] CAUSAL office | rss | tcn | epoch=0600 | RF-RMSE=1.400 m
+[EVAL] CAUSAL office | rss | tcn | epoch=0800 | RF-RMSE=1.447 m
+[EVAL] CAUSAL office | rss | tcn | epoch=1000 | RF-RMSE=1.440 m
+[EVAL] CAUSAL office | rss | tcn | epoch=1200 | RF-RMSE=1.376 m
+[EVAL] CAUSAL office | rss | tcn | epoch=1400 | RF-RMSE=1.487 m
+[EVAL] CAUSAL office | rss | tcn | epoch=1500 | RF-RMSE=1.436 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 0.8859 ms, per scan = 0.0148 ms (T=60, n_runs=100)
+
+=== CAUSAL OFFICE | mode=RTT | model=TCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_office_rtt_tcn_causal_epochs1500_rolls5-10-20 ===
+[office] Using T_expected=60 scans/RP
+[office] Using AP indices from coords: [1, 2, 3, 4, 5]
+[office] Adding rolling stats for mode='rtt' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [60, 5, 20]
+[ptflops] Params: 80,862
+[ptflops] MACs  : 5.92M
+[ptflops] FLOPs : 11.83M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_office_rtt_tcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL office | rtt | tcn | epoch=0200 | RF-RMSE=0.727 m
+[EVAL] CAUSAL office | rtt | tcn | epoch=0400 | RF-RMSE=0.680 m
+[EVAL] CAUSAL office | rtt | tcn | epoch=0600 | RF-RMSE=0.650 m
+[EVAL] CAUSAL office | rtt | tcn | epoch=0800 | RF-RMSE=0.674 m
+[EVAL] CAUSAL office | rtt | tcn | epoch=1000 | RF-RMSE=0.679 m
+[EVAL] CAUSAL office | rtt | tcn | epoch=1200 | RF-RMSE=0.683 m
+[EVAL] CAUSAL office | rtt | tcn | epoch=1400 | RF-RMSE=0.648 m
+[EVAL] CAUSAL office | rtt | tcn | epoch=1500 | RF-RMSE=0.704 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 0.8845 ms, per scan = 0.0147 ms (T=60, n_runs=100)
+
+=== CAUSAL OFFICE | mode=BOTH | model=TCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_office_both_tcn_causal_epochs1500_rolls5-10-20 ===
+[office] Using T_expected=60 scans/RP
+[office] Using AP indices from coords: [1, 2, 3, 4, 5]
+[office] Adding rolling stats for mode='both' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [60, 5, 38]
+[ptflops] Params: 82,590
+[ptflops] MACs  : 6.43M
+[ptflops] FLOPs : 12.87M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_office_both_tcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL office | both | tcn | epoch=0200 | RF-RMSE=1.195 m
+[EVAL] CAUSAL office | both | tcn | epoch=0400 | RF-RMSE=1.009 m
+[EVAL] CAUSAL office | both | tcn | epoch=0600 | RF-RMSE=1.010 m
+[EVAL] CAUSAL office | both | tcn | epoch=0800 | RF-RMSE=0.898 m
+[EVAL] CAUSAL office | both | tcn | epoch=1000 | RF-RMSE=0.877 m
+[EVAL] CAUSAL office | both | tcn | epoch=1200 | RF-RMSE=0.801 m
+[EVAL] CAUSAL office | both | tcn | epoch=1400 | RF-RMSE=0.820 m
+[EVAL] CAUSAL office | both | tcn | epoch=1500 | RF-RMSE=0.789 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 0.8983 ms, per scan = 0.0150 ms (T=60, n_runs=100)
+
+=== CAUSAL OFFICE | mode=RSS | model=BOTH | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_office_rss_both_causal_epochs1500_rolls5-10-20 ===
+[office] Using T_expected=60 scans/RP
+[office] Using AP indices from coords: [1, 2, 3, 4, 5]
+[office] Adding rolling stats for mode='rss' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [60, 5, 20]
+[ptflops] Params: 90,910
+[ptflops] MACs  : 8.93M
+[ptflops] FLOPs : 17.86M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_office_rss_both_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL office | rss | both | epoch=0200 | RF-RMSE=1.596 m
+[EVAL] CAUSAL office | rss | both | epoch=0400 | RF-RMSE=1.252 m
+[EVAL] CAUSAL office | rss | both | epoch=0600 | RF-RMSE=1.431 m
+[EVAL] CAUSAL office | rss | both | epoch=0800 | RF-RMSE=1.304 m
+[EVAL] CAUSAL office | rss | both | epoch=1000 | RF-RMSE=1.229 m
+[EVAL] CAUSAL office | rss | both | epoch=1200 | RF-RMSE=1.417 m
+[EVAL] CAUSAL office | rss | both | epoch=1400 | RF-RMSE=1.136 m
+[EVAL] CAUSAL office | rss | both | epoch=1500 | RF-RMSE=1.203 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 1.3432 ms, per scan = 0.0224 ms (T=60, n_runs=100)
+
+=== CAUSAL OFFICE | mode=RTT | model=BOTH | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_office_rtt_both_causal_epochs1500_rolls5-10-20 ===
+[office] Using T_expected=60 scans/RP
+[office] Using AP indices from coords: [1, 2, 3, 4, 5]
+[office] Adding rolling stats for mode='rtt' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [60, 5, 20]
+[ptflops] Params: 90,910
+[ptflops] MACs  : 8.93M
+[ptflops] FLOPs : 17.86M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_office_rtt_both_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL office | rtt | both | epoch=0200 | RF-RMSE=0.694 m
+[EVAL] CAUSAL office | rtt | both | epoch=0400 | RF-RMSE=0.678 m
+[EVAL] CAUSAL office | rtt | both | epoch=0600 | RF-RMSE=0.718 m
+[EVAL] CAUSAL office | rtt | both | epoch=0800 | RF-RMSE=0.661 m
+[EVAL] CAUSAL office | rtt | both | epoch=1000 | RF-RMSE=0.690 m
+[EVAL] CAUSAL office | rtt | both | epoch=1200 | RF-RMSE=0.642 m
+[EVAL] CAUSAL office | rtt | both | epoch=1400 | RF-RMSE=0.638 m
+[EVAL] CAUSAL office | rtt | both | epoch=1500 | RF-RMSE=0.649 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 1.3382 ms, per scan = 0.0223 ms (T=60, n_runs=100)
+
+=== CAUSAL OFFICE | mode=BOTH | model=BOTH | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_office_both_both_causal_epochs1500_rolls5-10-20 ===
+[office] Using T_expected=60 scans/RP
+[office] Using AP indices from coords: [1, 2, 3, 4, 5]
+[office] Adding rolling stats for mode='both' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [60, 5, 38]
+[ptflops] Params: 93,790
+[ptflops] MACs  : 9.79M
+[ptflops] FLOPs : 19.59M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_office_both_both_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL office | both | both | epoch=0200 | RF-RMSE=0.980 m
+[EVAL] CAUSAL office | both | both | epoch=0400 | RF-RMSE=0.618 m
+[EVAL] CAUSAL office | both | both | epoch=0600 | RF-RMSE=0.576 m
+[EVAL] CAUSAL office | both | both | epoch=0800 | RF-RMSE=0.577 m
+[EVAL] CAUSAL office | both | both | epoch=1000 | RF-RMSE=0.634 m
+[EVAL] CAUSAL office | both | both | epoch=1200 | RF-RMSE=0.575 m
+[EVAL] CAUSAL office | both | both | epoch=1400 | RF-RMSE=0.559 m
+[EVAL] CAUSAL office | both | both | epoch=1500 | RF-RMSE=0.560 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 1.3627 ms, per scan = 0.0227 ms (T=60, n_runs=100)
+
+================= CAUSAL ENV: lecture_theatre =================
+
+=== CAUSAL LECTURE_THEATRE | mode=RSS | model=GCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_lecture_theatre_rss_gcn_causal_epochs1500_rolls5-10-20 ===
+[lecture_theatre] Using T_expected=60 scans/RP
+[lecture_theatre] Using AP indices from coords: [1, 2, 3, 4, 5]
+[lecture_theatre] Adding rolling stats for mode='rss' with windows=[5, 10, 20]
+
+[ptflops] Input shape (T,N,F): [60, 5, 20]
+[ptflops] Params: 19,230
+[ptflops] MACs  : 4.76M
+[ptflops] FLOPs : 9.52M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_lecture_theatre_rss_gcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL lecture_theatre | rss | gcn | epoch=0200 | RF-RMSE=2.443 m
+[EVAL] CAUSAL lecture_theatre | rss | gcn | epoch=0400 | RF-RMSE=2.106 m
+[EVAL] CAUSAL lecture_theatre | rss | gcn | epoch=0600 | RF-RMSE=2.081 m
+[EVAL] CAUSAL lecture_theatre | rss | gcn | epoch=0800 | RF-RMSE=1.908 m
+[EVAL] CAUSAL lecture_theatre | rss | gcn | epoch=1000 | RF-RMSE=2.062 m
+[EVAL] CAUSAL lecture_theatre | rss | gcn | epoch=1200 | RF-RMSE=1.969 m
+[EVAL] CAUSAL lecture_theatre | rss | gcn | epoch=1400 | RF-RMSE=2.052 m
+[EVAL] CAUSAL lecture_theatre | rss | gcn | epoch=1500 | RF-RMSE=2.141 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 0.5639 ms, per scan = 0.0094 ms (T=60, n_runs=100)
+
+=== CAUSAL LECTURE_THEATRE | mode=RTT | model=GCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_lecture_theatre_rtt_gcn_causal_epochs1500_rolls5-10-20 ===
+[lecture_theatre] Using T_expected=60 scans/RP
+[lecture_theatre] Using AP indices from coords: [1, 2, 3, 4, 5]
+[lecture_theatre] Adding rolling stats for mode='rtt' with windows=[5, 10, 20]
+
+[ptflops] Input shape (T,N,F): [60, 5, 20]
+[ptflops] Params: 19,230
+[ptflops] MACs  : 4.76M
+[ptflops] FLOPs : 9.52M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_lecture_theatre_rtt_gcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL lecture_theatre | rtt | gcn | epoch=0200 | RF-RMSE=0.477 m
+[EVAL] CAUSAL lecture_theatre | rtt | gcn | epoch=0400 | RF-RMSE=0.459 m
+[EVAL] CAUSAL lecture_theatre | rtt | gcn | epoch=0600 | RF-RMSE=0.426 m
+[EVAL] CAUSAL lecture_theatre | rtt | gcn | epoch=0800 | RF-RMSE=0.435 m
+[EVAL] CAUSAL lecture_theatre | rtt | gcn | epoch=1000 | RF-RMSE=0.437 m
+[EVAL] CAUSAL lecture_theatre | rtt | gcn | epoch=1200 | RF-RMSE=0.431 m
+[EVAL] CAUSAL lecture_theatre | rtt | gcn | epoch=1400 | RF-RMSE=0.461 m
+[EVAL] CAUSAL lecture_theatre | rtt | gcn | epoch=1500 | RF-RMSE=0.426 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 0.5657 ms, per scan = 0.0094 ms (T=60, n_runs=100)
+
+=== CAUSAL LECTURE_THEATRE | mode=BOTH | model=GCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_lecture_theatre_both_gcn_causal_epochs1500_rolls5-10-20 ===
+[lecture_theatre] Using T_expected=60 scans/RP
+[lecture_theatre] Using AP indices from coords: [1, 2, 3, 4, 5]
+[lecture_theatre] Adding rolling stats for mode='both' with windows=[5, 10, 20]
+
+[ptflops] Input shape (T,N,F): [60, 5, 38]
+[ptflops] Params: 20,958
+[ptflops] MACs  : 5.28M
+[ptflops] FLOPs : 10.55M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_lecture_theatre_both_gcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL lecture_theatre | both | gcn | epoch=0200 | RF-RMSE=1.016 m
+[EVAL] CAUSAL lecture_theatre | both | gcn | epoch=0400 | RF-RMSE=0.789 m
+[EVAL] CAUSAL lecture_theatre | both | gcn | epoch=0600 | RF-RMSE=0.733 m
+[EVAL] CAUSAL lecture_theatre | both | gcn | epoch=0800 | RF-RMSE=0.645 m
+[EVAL] CAUSAL lecture_theatre | both | gcn | epoch=1000 | RF-RMSE=0.623 m
+[EVAL] CAUSAL lecture_theatre | both | gcn | epoch=1200 | RF-RMSE=0.666 m
+[EVAL] CAUSAL lecture_theatre | both | gcn | epoch=1400 | RF-RMSE=0.599 m
+[EVAL] CAUSAL lecture_theatre | both | gcn | epoch=1500 | RF-RMSE=0.571 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 0.5775 ms, per scan = 0.0096 ms (T=60, n_runs=100)
+
+=== CAUSAL LECTURE_THEATRE | mode=RSS | model=TCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_lecture_theatre_rss_tcn_causal_epochs1500_rolls5-10-20 ===
+[lecture_theatre] Using T_expected=60 scans/RP
+[lecture_theatre] Using AP indices from coords: [1, 2, 3, 4, 5]
+[lecture_theatre] Adding rolling stats for mode='rss' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [60, 5, 20]
+[ptflops] Params: 80,862
+[ptflops] MACs  : 5.92M
+[ptflops] FLOPs : 11.83M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_lecture_theatre_rss_tcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL lecture_theatre | rss | tcn | epoch=0200 | RF-RMSE=2.117 m
+[EVAL] CAUSAL lecture_theatre | rss | tcn | epoch=0400 | RF-RMSE=2.124 m
+[EVAL] CAUSAL lecture_theatre | rss | tcn | epoch=0600 | RF-RMSE=2.104 m
+[EVAL] CAUSAL lecture_theatre | rss | tcn | epoch=0800 | RF-RMSE=2.002 m
+[EVAL] CAUSAL lecture_theatre | rss | tcn | epoch=1000 | RF-RMSE=2.018 m
+[EVAL] CAUSAL lecture_theatre | rss | tcn | epoch=1200 | RF-RMSE=1.856 m
+[EVAL] CAUSAL lecture_theatre | rss | tcn | epoch=1400 | RF-RMSE=2.067 m
+[EVAL] CAUSAL lecture_theatre | rss | tcn | epoch=1500 | RF-RMSE=2.075 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 0.8866 ms, per scan = 0.0148 ms (T=60, n_runs=100)
+
+=== CAUSAL LECTURE_THEATRE | mode=RTT | model=TCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_lecture_theatre_rtt_tcn_causal_epochs1500_rolls5-10-20 ===
+[lecture_theatre] Using T_expected=60 scans/RP
+[lecture_theatre] Using AP indices from coords: [1, 2, 3, 4, 5]
+[lecture_theatre] Adding rolling stats for mode='rtt' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [60, 5, 20]
+[ptflops] Params: 80,862
+[ptflops] MACs  : 5.92M
+[ptflops] FLOPs : 11.83M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_lecture_theatre_rtt_tcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL lecture_theatre | rtt | tcn | epoch=0200 | RF-RMSE=0.515 m
+[EVAL] CAUSAL lecture_theatre | rtt | tcn | epoch=0400 | RF-RMSE=0.441 m
+[EVAL] CAUSAL lecture_theatre | rtt | tcn | epoch=0600 | RF-RMSE=0.437 m
+[EVAL] CAUSAL lecture_theatre | rtt | tcn | epoch=0800 | RF-RMSE=0.426 m
+[EVAL] CAUSAL lecture_theatre | rtt | tcn | epoch=1000 | RF-RMSE=0.441 m
+[EVAL] CAUSAL lecture_theatre | rtt | tcn | epoch=1200 | RF-RMSE=0.406 m
+[EVAL] CAUSAL lecture_theatre | rtt | tcn | epoch=1400 | RF-RMSE=0.418 m
+[EVAL] CAUSAL lecture_theatre | rtt | tcn | epoch=1500 | RF-RMSE=0.410 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 0.8867 ms, per scan = 0.0148 ms (T=60, n_runs=100)
+
+=== CAUSAL LECTURE_THEATRE | mode=BOTH | model=TCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_lecture_theatre_both_tcn_causal_epochs1500_rolls5-10-20 ===
+[lecture_theatre] Using T_expected=60 scans/RP
+[lecture_theatre] Using AP indices from coords: [1, 2, 3, 4, 5]
+[lecture_theatre] Adding rolling stats for mode='both' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [60, 5, 38]
+[ptflops] Params: 82,590
+[ptflops] MACs  : 6.43M
+[ptflops] FLOPs : 12.87M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_lecture_theatre_both_tcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL lecture_theatre | both | tcn | epoch=0200 | RF-RMSE=0.963 m
+[EVAL] CAUSAL lecture_theatre | both | tcn | epoch=0400 | RF-RMSE=0.779 m
+[EVAL] CAUSAL lecture_theatre | both | tcn | epoch=0600 | RF-RMSE=0.668 m
+[EVAL] CAUSAL lecture_theatre | both | tcn | epoch=0800 | RF-RMSE=0.637 m
+[EVAL] CAUSAL lecture_theatre | both | tcn | epoch=1000 | RF-RMSE=0.519 m
+[EVAL] CAUSAL lecture_theatre | both | tcn | epoch=1200 | RF-RMSE=0.476 m
+[EVAL] CAUSAL lecture_theatre | both | tcn | epoch=1400 | RF-RMSE=0.515 m
+[EVAL] CAUSAL lecture_theatre | both | tcn | epoch=1500 | RF-RMSE=0.513 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 0.8978 ms, per scan = 0.0150 ms (T=60, n_runs=100)
+
+=== CAUSAL LECTURE_THEATRE | mode=RSS | model=BOTH | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_lecture_theatre_rss_both_causal_epochs1500_rolls5-10-20 ===
+[lecture_theatre] Using T_expected=60 scans/RP
+[lecture_theatre] Using AP indices from coords: [1, 2, 3, 4, 5]
+[lecture_theatre] Adding rolling stats for mode='rss' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [60, 5, 20]
+[ptflops] Params: 90,910
+[ptflops] MACs  : 8.93M
+[ptflops] FLOPs : 17.86M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_lecture_theatre_rss_both_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL lecture_theatre | rss | both | epoch=0200 | RF-RMSE=2.219 m
+[EVAL] CAUSAL lecture_theatre | rss | both | epoch=0400 | RF-RMSE=2.302 m
+[EVAL] CAUSAL lecture_theatre | rss | both | epoch=0600 | RF-RMSE=2.101 m
+[EVAL] CAUSAL lecture_theatre | rss | both | epoch=0800 | RF-RMSE=2.055 m
+[EVAL] CAUSAL lecture_theatre | rss | both | epoch=1000 | RF-RMSE=1.956 m
+[EVAL] CAUSAL lecture_theatre | rss | both | epoch=1200 | RF-RMSE=2.013 m
+[EVAL] CAUSAL lecture_theatre | rss | both | epoch=1400 | RF-RMSE=2.099 m
+[EVAL] CAUSAL lecture_theatre | rss | both | epoch=1500 | RF-RMSE=2.170 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 1.3381 ms, per scan = 0.0223 ms (T=60, n_runs=100)
+
+=== CAUSAL LECTURE_THEATRE | mode=RTT | model=BOTH | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_lecture_theatre_rtt_both_causal_epochs1500_rolls5-10-20 ===
+[lecture_theatre] Using T_expected=60 scans/RP
+[lecture_theatre] Using AP indices from coords: [1, 2, 3, 4, 5]
+[lecture_theatre] Adding rolling stats for mode='rtt' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [60, 5, 20]
+[ptflops] Params: 90,910
+[ptflops] MACs  : 8.93M
+[ptflops] FLOPs : 17.86M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_lecture_theatre_rtt_both_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL lecture_theatre | rtt | both | epoch=0200 | RF-RMSE=0.525 m
+[EVAL] CAUSAL lecture_theatre | rtt | both | epoch=0400 | RF-RMSE=0.478 m
+[EVAL] CAUSAL lecture_theatre | rtt | both | epoch=0600 | RF-RMSE=0.452 m
+[EVAL] CAUSAL lecture_theatre | rtt | both | epoch=0800 | RF-RMSE=0.480 m
+[EVAL] CAUSAL lecture_theatre | rtt | both | epoch=1000 | RF-RMSE=0.483 m
+[EVAL] CAUSAL lecture_theatre | rtt | both | epoch=1200 | RF-RMSE=0.458 m
+[EVAL] CAUSAL lecture_theatre | rtt | both | epoch=1400 | RF-RMSE=0.440 m
+[EVAL] CAUSAL lecture_theatre | rtt | both | epoch=1500 | RF-RMSE=0.449 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 1.3400 ms, per scan = 0.0223 ms (T=60, n_runs=100)
+
+=== CAUSAL LECTURE_THEATRE | mode=BOTH | model=BOTH | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_lecture_theatre_both_both_causal_epochs1500_rolls5-10-20 ===
+[lecture_theatre] Using T_expected=60 scans/RP
+[lecture_theatre] Using AP indices from coords: [1, 2, 3, 4, 5]
+[lecture_theatre] Adding rolling stats for mode='both' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [60, 5, 38]
+[ptflops] Params: 93,790
+[ptflops] MACs  : 9.79M
+[ptflops] FLOPs : 19.59M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_lecture_theatre_both_both_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL lecture_theatre | both | both | epoch=0200 | RF-RMSE=0.694 m
+[EVAL] CAUSAL lecture_theatre | both | both | epoch=0400 | RF-RMSE=0.520 m
+[EVAL] CAUSAL lecture_theatre | both | both | epoch=0600 | RF-RMSE=0.478 m
+[EVAL] CAUSAL lecture_theatre | both | both | epoch=0800 | RF-RMSE=0.603 m
+[EVAL] CAUSAL lecture_theatre | both | both | epoch=1000 | RF-RMSE=0.505 m
+[EVAL] CAUSAL lecture_theatre | both | both | epoch=1200 | RF-RMSE=0.511 m
+[EVAL] CAUSAL lecture_theatre | both | both | epoch=1400 | RF-RMSE=0.517 m
+[EVAL] CAUSAL lecture_theatre | both | both | epoch=1500 | RF-RMSE=0.501 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 1.3692 ms, per scan = 0.0228 ms (T=60, n_runs=100)
+
+================= CAUSAL ENV: building =================
+
+=== CAUSAL BUILDING | mode=RSS | model=GCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_building_rss_gcn_causal_epochs1500_rolls5-10-20 ===
+[building] Using T_expected=120 scans/RP
+[building] Using AP indices from coords: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+[building] Adding rolling stats for mode='rss' with windows=[5, 10, 20]
+
+[ptflops] Input shape (T,N,F): [120, 13, 20]
+[ptflops] Params: 19,374
+[ptflops] MACs  : 23.89M
+[ptflops] FLOPs : 47.79M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_building_rss_gcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL building | rss | gcn | epoch=0200 | RF-RMSE=3.837 m
+[EVAL] CAUSAL building | rss | gcn | epoch=0400 | RF-RMSE=2.363 m
+[EVAL] CAUSAL building | rss | gcn | epoch=0600 | RF-RMSE=1.913 m
+[EVAL] CAUSAL building | rss | gcn | epoch=0800 | RF-RMSE=1.896 m
+[EVAL] CAUSAL building | rss | gcn | epoch=1000 | RF-RMSE=1.633 m
+[EVAL] CAUSAL building | rss | gcn | epoch=1200 | RF-RMSE=1.547 m
+[EVAL] CAUSAL building | rss | gcn | epoch=1400 | RF-RMSE=1.573 m
+[EVAL] CAUSAL building | rss | gcn | epoch=1500 | RF-RMSE=1.615 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 1.5913 ms, per scan = 0.0133 ms (T=120, n_runs=100)
+
+=== CAUSAL BUILDING | mode=RTT | model=GCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_building_rtt_gcn_causal_epochs1500_rolls5-10-20 ===
+[building] Using T_expected=120 scans/RP
+[building] Using AP indices from coords: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+[building] Adding rolling stats for mode='rtt' with windows=[5, 10, 20]
+
+[ptflops] Input shape (T,N,F): [120, 13, 20]
+[ptflops] Params: 19,374
+[ptflops] MACs  : 23.89M
+[ptflops] FLOPs : 47.79M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_building_rtt_gcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL building | rtt | gcn | epoch=0200 | RF-RMSE=1.601 m
+[EVAL] CAUSAL building | rtt | gcn | epoch=0400 | RF-RMSE=1.333 m
+[EVAL] CAUSAL building | rtt | gcn | epoch=0600 | RF-RMSE=1.067 m
+[EVAL] CAUSAL building | rtt | gcn | epoch=0800 | RF-RMSE=0.927 m
+[EVAL] CAUSAL building | rtt | gcn | epoch=1000 | RF-RMSE=1.051 m
+[EVAL] CAUSAL building | rtt | gcn | epoch=1200 | RF-RMSE=0.840 m
+[EVAL] CAUSAL building | rtt | gcn | epoch=1400 | RF-RMSE=0.880 m
+[EVAL] CAUSAL building | rtt | gcn | epoch=1500 | RF-RMSE=1.009 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 1.5891 ms, per scan = 0.0132 ms (T=120, n_runs=100)
+
+=== CAUSAL BUILDING | mode=BOTH | model=GCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_building_both_gcn_causal_epochs1500_rolls5-10-20 ===
+[building] Using T_expected=120 scans/RP
+[building] Using AP indices from coords: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+[building] Adding rolling stats for mode='both' with windows=[5, 10, 20]
+
+[ptflops] Input shape (T,N,F): [120, 13, 38]
+[ptflops] Params: 21,102
+[ptflops] MACs  : 26.59M
+[ptflops] FLOPs : 53.18M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_building_both_gcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL building | both | gcn | epoch=0200 | RF-RMSE=3.089 m
+[EVAL] CAUSAL building | both | gcn | epoch=0400 | RF-RMSE=1.145 m
+[EVAL] CAUSAL building | both | gcn | epoch=0600 | RF-RMSE=1.128 m
+[EVAL] CAUSAL building | both | gcn | epoch=0800 | RF-RMSE=1.021 m
+[EVAL] CAUSAL building | both | gcn | epoch=1000 | RF-RMSE=0.760 m
+[EVAL] CAUSAL building | both | gcn | epoch=1200 | RF-RMSE=0.787 m
+[EVAL] CAUSAL building | both | gcn | epoch=1400 | RF-RMSE=0.867 m
+[EVAL] CAUSAL building | both | gcn | epoch=1500 | RF-RMSE=0.877 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 1.6435 ms, per scan = 0.0137 ms (T=120, n_runs=100)
+
+=== CAUSAL BUILDING | mode=RSS | model=TCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_building_rss_tcn_causal_epochs1500_rolls5-10-20 ===
+[building] Using T_expected=120 scans/RP
+[building] Using AP indices from coords: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+[building] Adding rolling stats for mode='rss' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [120, 13, 20]
+[ptflops] Params: 81,006
+[ptflops] MACs  : 13.34M
+[ptflops] FLOPs : 26.67M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_building_rss_tcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL building | rss | tcn | epoch=0200 | RF-RMSE=2.631 m
+[EVAL] CAUSAL building | rss | tcn | epoch=0400 | RF-RMSE=2.052 m
+[EVAL] CAUSAL building | rss | tcn | epoch=0600 | RF-RMSE=1.958 m
+[EVAL] CAUSAL building | rss | tcn | epoch=0800 | RF-RMSE=1.727 m
+[EVAL] CAUSAL building | rss | tcn | epoch=1000 | RF-RMSE=1.832 m
+[EVAL] CAUSAL building | rss | tcn | epoch=1200 | RF-RMSE=1.968 m
+[EVAL] CAUSAL building | rss | tcn | epoch=1400 | RF-RMSE=1.630 m
+[EVAL] CAUSAL building | rss | tcn | epoch=1500 | RF-RMSE=1.850 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 1.1552 ms, per scan = 0.0096 ms (T=120, n_runs=100)
+
+=== CAUSAL BUILDING | mode=RTT | model=TCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_building_rtt_tcn_causal_epochs1500_rolls5-10-20 ===
+[building] Using T_expected=120 scans/RP
+[building] Using AP indices from coords: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+[building] Adding rolling stats for mode='rtt' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [120, 13, 20]
+[ptflops] Params: 81,006
+[ptflops] MACs  : 13.34M
+[ptflops] FLOPs : 26.67M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_building_rtt_tcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL building | rtt | tcn | epoch=0200 | RF-RMSE=1.984 m
+[EVAL] CAUSAL building | rtt | tcn | epoch=0400 | RF-RMSE=1.750 m
+[EVAL] CAUSAL building | rtt | tcn | epoch=0600 | RF-RMSE=1.973 m
+[EVAL] CAUSAL building | rtt | tcn | epoch=0800 | RF-RMSE=1.791 m
+[EVAL] CAUSAL building | rtt | tcn | epoch=1000 | RF-RMSE=1.162 m
+[EVAL] CAUSAL building | rtt | tcn | epoch=1200 | RF-RMSE=0.966 m
+[EVAL] CAUSAL building | rtt | tcn | epoch=1400 | RF-RMSE=0.879 m
+[EVAL] CAUSAL building | rtt | tcn | epoch=1500 | RF-RMSE=0.757 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 1.1556 ms, per scan = 0.0096 ms (T=120, n_runs=100)
+
+=== CAUSAL BUILDING | mode=BOTH | model=TCN | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_building_both_tcn_causal_epochs1500_rolls5-10-20 ===
+[building] Using T_expected=120 scans/RP
+[building] Using AP indices from coords: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+[building] Adding rolling stats for mode='both' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [120, 13, 38]
+[ptflops] Params: 82,734
+[ptflops] MACs  : 16.03M
+[ptflops] FLOPs : 32.06M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_building_both_tcn_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL building | both | tcn | epoch=0200 | RF-RMSE=2.498 m
+[EVAL] CAUSAL building | both | tcn | epoch=0400 | RF-RMSE=1.968 m
+[EVAL] CAUSAL building | both | tcn | epoch=0600 | RF-RMSE=1.331 m
+[EVAL] CAUSAL building | both | tcn | epoch=0800 | RF-RMSE=1.380 m
+[EVAL] CAUSAL building | both | tcn | epoch=1000 | RF-RMSE=1.169 m
+[EVAL] CAUSAL building | both | tcn | epoch=1200 | RF-RMSE=1.036 m
+[EVAL] CAUSAL building | both | tcn | epoch=1400 | RF-RMSE=0.934 m
+[EVAL] CAUSAL building | both | tcn | epoch=1500 | RF-RMSE=1.017 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 1.2018 ms, per scan = 0.0100 ms (T=120, n_runs=100)
+
+=== CAUSAL BUILDING | mode=RSS | model=BOTH | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_building_rss_both_causal_epochs1500_rolls5-10-20 ===
+[building] Using T_expected=120 scans/RP
+[building] Using AP indices from coords: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+[building] Adding rolling stats for mode='rss' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [120, 13, 20]
+[ptflops] Params: 91,054
+[ptflops] MACs  : 29.01M
+[ptflops] FLOPs : 58.02M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_building_rss_both_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL building | rss | both | epoch=0200 | RF-RMSE=4.530 m
+[EVAL] CAUSAL building | rss | both | epoch=0400 | RF-RMSE=1.973 m
+[EVAL] CAUSAL building | rss | both | epoch=0600 | RF-RMSE=1.730 m
+[EVAL] CAUSAL building | rss | both | epoch=0800 | RF-RMSE=2.277 m
+[EVAL] CAUSAL building | rss | both | epoch=1000 | RF-RMSE=1.532 m
+[EVAL] CAUSAL building | rss | both | epoch=1200 | RF-RMSE=1.444 m
+[EVAL] CAUSAL building | rss | both | epoch=1400 | RF-RMSE=1.782 m
+[EVAL] CAUSAL building | rss | both | epoch=1500 | RF-RMSE=1.579 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 2.4195 ms, per scan = 0.0202 ms (T=120, n_runs=100)
+
+=== CAUSAL BUILDING | mode=RTT | model=BOTH | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_building_rtt_both_causal_epochs1500_rolls5-10-20 ===
+[building] Using T_expected=120 scans/RP
+[building] Using AP indices from coords: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+[building] Adding rolling stats for mode='rtt' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [120, 13, 20]
+[ptflops] Params: 91,054
+[ptflops] MACs  : 29.01M
+[ptflops] FLOPs : 58.02M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_building_rtt_both_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL building | rtt | both | epoch=0200 | RF-RMSE=1.663 m
+[EVAL] CAUSAL building | rtt | both | epoch=0400 | RF-RMSE=1.307 m
+[EVAL] CAUSAL building | rtt | both | epoch=0600 | RF-RMSE=0.962 m
+[EVAL] CAUSAL building | rtt | both | epoch=0800 | RF-RMSE=0.874 m
+[EVAL] CAUSAL building | rtt | both | epoch=1000 | RF-RMSE=0.857 m
+[EVAL] CAUSAL building | rtt | both | epoch=1200 | RF-RMSE=0.745 m
+[EVAL] CAUSAL building | rtt | both | epoch=1400 | RF-RMSE=0.685 m
+[EVAL] CAUSAL building | rtt | both | epoch=1500 | RF-RMSE=0.731 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 2.4325 ms, per scan = 0.0203 ms (T=120, n_runs=100)
+
+=== CAUSAL BUILDING | mode=BOTH | model=BOTH | epochs=1500 | eval_every=200 | rolls=[5, 10, 20] | out=results_CPU_TIME/artifacts_causal_building_both_both_causal_epochs1500_rolls5-10-20 ===
+[building] Using T_expected=120 scans/RP
+[building] Using AP indices from coords: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+[building] Adding rolling stats for mode='both' with windows=[5, 10, 20]
+/work/lxr240011/conda_envs/WiMANS/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+
+[ptflops] Input shape (T,N,F): [120, 13, 38]
+[ptflops] Params: 93,934
+[ptflops] MACs  : 33.50M
+[ptflops] FLOPs : 67.01M  (≈ 2 × MACs)
+
+[ptflops] Saved: results_CPU_TIME/artifacts_causal_building_both_both_causal_epochs1500_rolls5-10-20/model_complexity_ptflops.txt
+[EVAL] CAUSAL building | both | both | epoch=0200 | RF-RMSE=1.712 m
+[EVAL] CAUSAL building | both | both | epoch=0400 | RF-RMSE=1.166 m
+[EVAL] CAUSAL building | both | both | epoch=0600 | RF-RMSE=0.841 m
+[EVAL] CAUSAL building | both | both | epoch=0800 | RF-RMSE=0.806 m
+[EVAL] CAUSAL building | both | both | epoch=1000 | RF-RMSE=0.659 m
+[EVAL] CAUSAL building | both | both | epoch=1200 | RF-RMSE=0.624 m
+[EVAL] CAUSAL building | both | both | epoch=1400 | RF-RMSE=0.568 m
+[EVAL] CAUSAL building | both | both | epoch=1500 | RF-RMSE=0.660 m
+[CPU-TIME] threads=1 | avg per sequence (RP) = 2.5374 ms, per scan = 0.0211 ms (T=120, n_runs=100)
+
+=== CAUSAL SWEEP COMPLETE ===
+                env feature_mode model_type  ...       flops  epochs  roll_windows
+0          corridor          rss        gcn  ...   7719120.0    1500   [5, 10, 20]
+1          corridor          rtt        gcn  ...   7719120.0    1500   [5, 10, 20]
+2          corridor         both        gcn  ...   8548560.0    1500   [5, 10, 20]
+3          corridor          rss        tcn  ...  11578320.0    1500   [5, 10, 20]
+4          corridor          rtt        tcn  ...  11578320.0    1500   [5, 10, 20]
+5          corridor         both        tcn  ...  12407760.0    1500   [5, 10, 20]
+6          corridor          rss       both  ...  16401360.0    1500   [5, 10, 20]
+7          corridor          rtt       both  ...  16401360.0    1500   [5, 10, 20]
+8          corridor         both       both  ...  17783760.0    1500   [5, 10, 20]
+9            office          rss        gcn  ...   9516360.0    1500   [5, 10, 20]
+10           office          rtt        gcn  ...   9516360.0    1500   [5, 10, 20]
+11           office         both        gcn  ...  10553160.0    1500   [5, 10, 20]
+12           office          rss        tcn  ...  11831880.0    1500   [5, 10, 20]
+13           office          rtt        tcn  ...  11831880.0    1500   [5, 10, 20]
+14           office         both        tcn  ...  12868680.0    1500   [5, 10, 20]
+15           office          rss       both  ...  17860680.0    1500   [5, 10, 20]
+16           office          rtt       both  ...  17860680.0    1500   [5, 10, 20]
+17           office         both       both  ...  19588680.0    1500   [5, 10, 20]
+18  lecture_theatre          rss        gcn  ...   9516360.0    1500   [5, 10, 20]
+19  lecture_theatre          rtt        gcn  ...   9516360.0    1500   [5, 10, 20]
+20  lecture_theatre         both        gcn  ...  10553160.0    1500   [5, 10, 20]
+21  lecture_theatre          rss        tcn  ...  11831880.0    1500   [5, 10, 20]
+22  lecture_theatre          rtt        tcn  ...  11831880.0    1500   [5, 10, 20]
+23  lecture_theatre         both        tcn  ...  12868680.0    1500   [5, 10, 20]
+24  lecture_theatre          rss       both  ...  17860680.0    1500   [5, 10, 20]
+25  lecture_theatre          rtt       both  ...  17860680.0    1500   [5, 10, 20]
+26  lecture_theatre         both       both  ...  19588680.0    1500   [5, 10, 20]
+27         building          rss        gcn  ...  47788560.0    1500   [5, 10, 20]
+28         building          rtt        gcn  ...  47788560.0    1500   [5, 10, 20]
+29         building         both        gcn  ...  53179920.0    1500   [5, 10, 20]
+30         building          rss        tcn  ...  26672400.0    1500   [5, 10, 20]
+31         building          rtt        tcn  ...  26672400.0    1500   [5, 10, 20]
+32         building         both        tcn  ...  32063760.0    1500   [5, 10, 20]
+33         building          rss       both  ...  58022160.0    1500   [5, 10, 20]
+34         building          rtt       both  ...  58022160.0    1500   [5, 10, 20]
+35         building         both       both  ...  67007760.0    1500   [5, 10, 20]
+
+[36 rows x 16 columns]
+
+Combined CSV saved to: results_CPU_TIME/results_causal_sweep_causal_epochs1500_rolls5-10-20_2025-12-04_10-32-13/artifacts_causal_all_envs_all_models_all_modes_causal_epochs1500_rolls5-10-20.csv
+
+=== Best feature mode per (environment, model) - CAUSAL ===
+            env model_type feature_mode  rf_rmse  cpu_ms_per_seq  cpu_ms_per_scan  epochs roll_windows
+       building       both         both 0.660243        2.537414         0.021145    1500  [5, 10, 20]
+       building        gcn         both 0.877215        1.643542         0.013696    1500  [5, 10, 20]
+       building        tcn          rtt 0.756830        1.155643         0.009630    1500  [5, 10, 20]
+       corridor       both         both 0.528669        1.313426         0.021890    1500  [5, 10, 20]
+       corridor        gcn          rtt 0.585620        0.534413         0.008907    1500  [5, 10, 20]
+       corridor        tcn          rtt 0.772892        0.895327         0.014922    1500  [5, 10, 20]
+lecture_theatre       both          rtt 0.448516        1.339983         0.022333    1500  [5, 10, 20]
+lecture_theatre        gcn          rtt 0.426242        0.565706         0.009428    1500  [5, 10, 20]
+lecture_theatre        tcn          rtt 0.409542        0.886659         0.014778    1500  [5, 10, 20]
+         office       both         both 0.559806        1.362666         0.022711    1500  [5, 10, 20]
+         office        gcn          rtt 0.621914        0.565778         0.009430    1500  [5, 10, 20]
+         office        tcn          rtt 0.703865        0.884507         0.014742    1500  [5, 10, 20]
+
+========== CAUSAL SWEEP END: causal_epochs1500_rolls5-10-20 ==========
+
++ set +x
+[DONE] Finished main_causal_residual_cpu_time.py

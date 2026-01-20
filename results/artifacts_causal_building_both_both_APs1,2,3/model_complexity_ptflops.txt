@@ -1,0 +1,4 @@
+[ptflops] Input shape (T,N,F): [120, 3, 38]
+[ptflops] Params: 93,774
+[ptflops] MACs  : 15.45M
+[ptflops] FLOPs : 30.91M  (≈ 2 × MACs)

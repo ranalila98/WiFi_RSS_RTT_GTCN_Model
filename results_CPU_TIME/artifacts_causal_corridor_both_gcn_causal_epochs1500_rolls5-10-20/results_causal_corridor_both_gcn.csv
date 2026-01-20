@@ -1,0 +1,2 @@
+env,feature_mode,model_type,rf_rmse,N_AP,grid_m,T_used,feat_dim,causal,cpu_ms_per_seq,cpu_ms_per_scan,params,macs,flops
+corridor,both,gcn,0.7199398875236511,4,0.6,60,38,True,0.543693732470274,0.0090615622078379,20949,4274280.0,8548560.0

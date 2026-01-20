@@ -1,0 +1,2 @@
+env,feature_mode,model_type,rf_rmse,N_AP,grid_m,T_used,feat_dim,causal,cpu_ms_per_seq,cpu_ms_per_scan,params,macs,flops
+building,rtt,tcn,0.7568302154541016,13,0.6,120,20,True,1.1556425131857395,0.009630354276547829,81006,13336200.0,26672400.0
